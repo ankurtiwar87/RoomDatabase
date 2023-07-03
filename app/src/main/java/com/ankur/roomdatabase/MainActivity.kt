@@ -14,10 +14,11 @@ class MainActivity : AppCompatActivity() {
 
 
 
-        database= Room.databaseBuilder(applicationContext
-            ,ContactDatabase::class.java,
-            "contactDB").build()
+//        database= Room.databaseBuilder(applicationContext
+//            ,ContactDatabase::class.java,
+//            "contactDB").build()
 
+        database= ContactDatabase.getDatabase(this)
 
         GlobalScope.launch {
             database.contactDao().insertContact(Contact(0,"json","7983140772"))
